@@ -122,6 +122,11 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Make ' ' + '/' the `gc` mapping -- e.g. toggle comment on/off
 vim.keymap.set('x', '<leader>/', 'gc', { remap = true, desc = 'Toggle comment selection' })
 
+-- Buffer navigation, matching the old NvChad tabufline muscle memory
+vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader>x', function() require('mini.bufremove').delete(0, false) end, { desc = 'Close buffer' })
+
 -- Diagnostic Config & Keymaps
 -- See :help vim.diagnostic.Opts
 vim.diagnostic.config {
@@ -784,6 +789,9 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+
+      -- Show open buffers as tabs across the top, similar to NvChad tabufline.
+      require('mini.tabline').setup { show_icons = vim.g.have_nerd_font }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
