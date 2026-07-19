@@ -185,6 +185,9 @@ do
   --  See `:help hlsearch`
   vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+  -- Make ' ' + '/' the `gc` mapping -- e.g. toggle comment on/off
+  vim.keymap.set('x', '<leader>/', 'gc', { remap = true, desc = 'Toggle comment selection' })
+
   -- Diagnostic Config & Keymaps
   --  See `:help vim.diagnostic.Opts`
   vim.diagnostic.config {
