@@ -867,6 +867,10 @@ do
       -- Accept with Enter only when the completion menu is visible
       ['<CR>'] = { 'accept', 'fallback' },
 
+      -- Navigate the completion menu without leaving the home row
+      ['<C-j>'] = { 'select_next', 'fallback' },
+      ['<C-k>'] = { 'select_prev', 'fallback' },
+
       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
     },
